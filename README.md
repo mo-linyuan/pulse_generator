@@ -1,2 +1,1 @@
-# test2
-This is a test!!
+实验使用的脉冲发生器
