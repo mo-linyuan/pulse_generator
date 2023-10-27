@@ -2,6 +2,8 @@
     Clk,
     Reset_n,
     Key,
+//    Key_P_Flag,
+//    Key_R_Flag,
     Key_Flag,
     Key_State
     );
