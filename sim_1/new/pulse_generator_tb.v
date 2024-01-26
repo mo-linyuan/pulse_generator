@@ -1,44 +1,42 @@
-`timescale 1ns/1ps
+`timescale 1ns/1ns
 module pulse_generator_tb;
     reg clk;
-    reg reset;
+    reg reset_n;
     reg [2:0]mode_sel;
-    reg key;
+    reg write_add_subtract;
+    reg read_add_subtract;
+    reg [2:0]key;
+
     wire [7:0] pulse;  
     wire clka;                                    
     
-    //实例化被测试的pulse_generator
     pulse_generator pulse_generator(
         .clk(clk),
-        .reset(reset),
+        .reset_n(reset_n),
         .mode_sel(mode_sel),
+        .write_add_subtract(write_add_subtract),
+        .read_add_subtract(read_add_subtract),
         .key(key),
         .pulse(pulse),
         .clka(clka)
     ); 
     
-    //初始化时钟
+    
     initial clk=1;
     always #10 clk=~clk;
     
     initial begin
-        reset=0;
-        key=1;
-        #201 
-        reset=1;
-        mode_sel=3'b000;
-        key=0;
-        //运行30ms
-        #50_000_000
-        reset=0;
-        key=1;
-         #201 
-        reset=1;
-        mode_sel=3'b001;
-        key=0;
+        reset_n=0;
+        mode_sel=3'b111;
+        read_add_subtract=0;
+        write_add_subtract=0;
+        key=3'b111;
+        #200
+        reset_n=1;
         #201
-        key=0;
-        #50_000_000
+
+        key=3'b000;
+        #40_000_000
         $stop;
     end
 endmodule
