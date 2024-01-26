@@ -37,6 +37,7 @@ module pulse_generator_tb;
 
         key=3'b000;
         #40_000_000
+        reset_n=0;
         $stop;
     end
 endmodule

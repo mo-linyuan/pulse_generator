@@ -22,9 +22,9 @@ wire [2:0]key_flag;
 wire [2:0]key_state;
 
 localparam 
-    width_read = 150_000,  // 脉冲宽度为3ms
+    width_read = 200_000,  // 脉冲宽度为4ms
     width_write = 100_000, //脉冲宽度为2ms
-    low_width = 100_000, // 低电平宽度为2ms
+    low_width = 50_000, // 低电平宽度为1ms
     period_read =width_read + low_width,
     period_write =width_write + low_width ;
 

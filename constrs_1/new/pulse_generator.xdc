@@ -41,4 +41,6 @@ set_property PACKAGE_PIN B22 [get_ports read_add_subtract]
 set_property PACKAGE_PIN C22 [get_ports write_add_subtract]
 
 set_property IOSTANDARD LVCMOS33 [get_ports reset_n]
-set_property PACKAGE_PIN M17 [get_ports reset_n]
+set_property PACKAGE_PIN B21 [get_ports reset_n]
+
+set_property SLEW SLOW [get_ports clka]
